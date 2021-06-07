@@ -1,4 +1,4 @@
-package com.yongbin.testboot.web;
+package com.yongbin.testboot.web.controller;
 
 import com.yongbin.testboot.web.dto.HelloResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;

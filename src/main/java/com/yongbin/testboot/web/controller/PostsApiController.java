@@ -1,4 +1,4 @@
-package com.yongbin.testboot.web;
+package com.yongbin.testboot.web.controller;
 
 import com.yongbin.testboot.service.posts.PostsService;
 import com.yongbin.testboot.web.dto.PostsResponseDto;
@@ -21,17 +21,23 @@ public class PostsApiController {
     private final PostsService postsService;
 
     @PostMapping("/api/v1/posts")
-    public Long save(@RequestBody PostsSaveRequestDto requestDto){
+    public Long save(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
     }
 
     @PutMapping("/api/v1/posts/{id}")
-    public Long Update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
+    public Long Update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
     }
 
     @GetMapping("/api/v1/posts/{id}")
-    public PostsResponseDto findById (@PathVariable Long id){
+    public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);
+    }
+
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id) {
+        postsService.delete(id);
+        return id;
     }
 }
